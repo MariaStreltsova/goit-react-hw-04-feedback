@@ -11,8 +11,6 @@ export class App extends Component {
   };
 
   handleFeedback = value => {
-    // const feedback = value.currentTarget.dataset.feedback;
-    // console.log(feedback);
     this.setState(prevState => {
       return { [value]: prevState[value] + 1 };
     });
@@ -36,26 +34,26 @@ export class App extends Component {
     const value = this.positiveFeedback();
     return (
       <Box
-        as="section"
+        as="div"
         width="100%"
         display="inline-flex"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
       >
-        <section>
+        <Box as="section">
           <h1>Please leave feedback</h1>
           <Options options={buttonsArray} onFeedback={this.handleFeedback} />
-        </section>
+        </Box>
 
-        <section>
+        <Box as="section" display="flex" flexDirection="column" width="50%">
           <h2>Statistics</h2>
           {total === 0 ? (
             <h3>No feedback given</h3>
           ) : (
             <Statistics total={total} good={value} statsArray={statsArray} />
           )}
-        </section>
+        </Box>
       </Box>
     );
   }
