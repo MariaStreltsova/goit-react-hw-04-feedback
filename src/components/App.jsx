@@ -2,6 +2,7 @@ import { Component } from 'react';
 import { Box } from './box/Box';
 import { Options } from './options/Options';
 import { Statistics } from './statistics/Statistics';
+import { Title } from './App.styled';
 
 export class App extends Component {
   state = {
@@ -35,14 +36,19 @@ export class App extends Component {
     return (
       <Box
         as="div"
-        width="100%"
-        display="inline-flex"
+        width="50%"
+        display="flex"
         alignItems="center"
         justifyContent="center"
         flexDirection="column"
+        ml="auto"
+        mr="auto"
+        bg="accent"
+        borderRadius="normal"
+        boxShadow="4px 11px 49px 1px rgba(173,186,222,1)"
       >
         <Box as="section">
-          <h1>Please leave feedback</h1>
+          <Title>Please leave feedback</Title>
           <Options options={buttonsArray} onFeedback={this.handleFeedback} />
         </Box>
 

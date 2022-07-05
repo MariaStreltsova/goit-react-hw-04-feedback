@@ -1,19 +1,26 @@
 import { Box } from '../box/Box';
+import { ItemsText, TotalResults, Items } from './Statistics.styled';
 
 export const Statistics = ({ statsArray, good, total }) => {
   return (
-    <Box display="inline-flex" alightItems="start" flexDirection="column">
+    <Box
+      display="inline-flex"
+      alightItems="start"
+      flexDirection="column"
+      width="100%"
+      mb={5}
+    >
       <ul>
         {statsArray.map(item => (
-          <li key={item[0]}>
-            <p>
+          <Items key={item[0]}>
+            <ItemsText>
               {item[0]}: {item[1]}
-            </p>
-          </li>
+            </ItemsText>
+          </Items>
         ))}
       </ul>
-      <p>Total: {total}</p>
-      <p value={good}> Positive Feedback: {good}%</p>
+      <TotalResults>Total: {total}</TotalResults>
+      <TotalResults value={good}> Positive Feedback: {good}%</TotalResults>
     </Box>
   );
 };
