@@ -1,7 +1,7 @@
 import { Box } from '../box/Box';
-import { ItemsText, TotalResults, Items } from './Statistics.styled';
+import { ItemsText, TotalResults, Item } from './Statistics.styled';
 
-export const Statistics = ({ statsArray, good, total }) => {
+export const Statistics = ({ good, neutral, bad, positiveFeedback, total }) => {
   return (
     <Box
       display="inline-flex"
@@ -10,17 +10,22 @@ export const Statistics = ({ statsArray, good, total }) => {
       width="100%"
       mb={5}
     >
-      <ul>
-        {statsArray.map(item => (
-          <Items key={item[0]}>
-            <ItemsText>
-              {item[0]}: {item[1]}
-            </ItemsText>
-          </Items>
-        ))}
-      </ul>
+      <Item>
+        Good:
+        <ItemsText>{good}</ItemsText>
+      </Item>
+
+      <Item>
+        Neutral:
+        <ItemsText>{neutral}</ItemsText>
+      </Item>
+
+      <Item>
+        Bad:
+        <ItemsText>{bad}</ItemsText>
+      </Item>
       <TotalResults>Total: {total}</TotalResults>
-      <TotalResults value={good}> Positive Feedback: {good}%</TotalResults>
+      <TotalResults> Positive Feedback: {positiveFeedback}%</TotalResults>
     </Box>
   );
 };
